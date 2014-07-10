@@ -9,3 +9,4 @@ Need a tool to generate this
 ### See
 
 - [https://www.drupal.org/node/2168705](Add UML class Diagrams to api.drupal.org)
+- Integrate to [at_ui.module](https://github.com/atdrupal/at_ui)
