@@ -6,8 +6,14 @@ use Symfony\Component\ClassLoader\UniversalClassLoader;
 /* @var $loader UniversalClassLoader */
 $loader = require_once dirname(__DIR__) . '/bootstrap.php';
 
-function url_class($class, $name) {
-    return '<a href="./index.php?class='. $class .'">'. $name .'</a>';
+function url_namespace($namespace, $name)
+{
+    return '<a href="./index.php?namespace=' . $namespace . '">' . $name . '</a>';
+}
+
+function url_class($class, $name)
+{
+    return '<a href="./index.php?class=' . $class . '">' . $name . '</a>';
 }
 
 function print_details($info, $prefix = '(root)', $hide_private = false, $debug = false)
