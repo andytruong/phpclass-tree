@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+<?php list($title, $output) = include __DIR__ . '/resource.php'; ?>
 <html lang="en">
     <head>
-        <title>PHPClassTree</title>
+        <title><?= $title ?> PHPClassTree</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,12 +33,12 @@
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
-                <h3 class="text-muted">PHPClassTree</h3>
+                <h3 class="text-muted"><?= $title ?></h3>
             </div>
 
             <div class="row marketing">
                 <div class="col-lg-12" id="info-div">
-                    <?php require_once __DIR__ . '/resource.php' ?>
+                    <?= $output ?>
                 </div>
             </div>
         </div> <!-- /container -->

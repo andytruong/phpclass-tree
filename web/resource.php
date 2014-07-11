@@ -94,9 +94,10 @@ if (!empty($_GET['namespace'])) {
     $namespace = explode('\\', $_GET['namespace']);
 
     while ($namespace) {
-        $_namespace = \implode('\\', $namespace);
-        if (isset($namespaces[$_namespace])) {
-            echo print_namespace($_GET['namespace'], $namespaces[$_namespace]);
+        $_namespace = implode('\\', $namespace);
+        if (isset($namespaces[$_namespace]) || isset($namespaces[$_namespace . '\\'])) {
+            $paths = isset($namespaces[$_namespace]) ? $namespaces[$_namespace] : $namespaces[$_namespace . '\\'];
+            return ['Namespace › ' . $_GET['namespace'], print_namespace($_GET['namespace'], $paths)];
             break;
         }
         array_pop($namespace);
@@ -105,5 +106,5 @@ if (!empty($_GET['namespace'])) {
 elseif (!empty($_GET['class'])) {
     $class = isset($_GET['class']) ? $_GET['class'] : 'Drupal\\Core\\TypedData\\DataReferenceDefinition';
     $info = $reader->getInfo($class);
-    echo print_details($info, $prefix = '(root)', $debug = true);
+    return ['Class › ' . $_GET['class'], print_details($info, $prefix = '(root)', $hide_private = false, $debug = true)];
 }
