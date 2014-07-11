@@ -32,32 +32,33 @@ function print_details($info, $prefix = '(root)', $hide_private = false, $debug 
     }
 
     // Print methods
-    foreach ($info['methods'] as $method) {
-        if ($method['class'] !== $info['name']) {
-            continue;
-        }
-
-        if ('private' === $method['scope']) {
-            continue;
-        }
-
-        $output .= '<li>';
-        $output .= '<em class="method scope">' . $method['scope'] . '</em>';
-        $output .= ' <span class="method name">' . $method['name'] . '</span>';
-        $output .= '(';
-        if (!empty($method['params'])) {
-            $params = [];
-            foreach ($method['params'] as $param) {
-                $params[] = implode(' ', [
-                    (isset($param['class']) ? '<span class="param hint">' . url_class($param['class'], $param['class']) . '</span>' : ''),
-                    '<span class="param name">$' . $param['name'] . '</span>'
-                ]);
+    if (!empty($info['methods'])) {
+        foreach ($info['methods'] as $method) {
+            if ($method['class'] !== $info['name']) {
+                continue;
             }
-            $output .= trim(implode(', ', $params));
+
+            if ('private' === $method['scope']) {
+                continue;
+            }
+
+            $output .= '<li class="scope-' . $method['scope'] . '">';
+            $output .= ' <span class="method name" title="Scope: ' . $method['scope'] . '">' . $method['name'] . '</span>';
+            $output .= '(';
+            if (!empty($method['params'])) {
+                $params = [];
+                foreach ($method['params'] as $param) {
+                    $params[] = implode(' ', [
+                        (isset($param['class']) ? '<span class="param hint">' . url_class($param['class'], $param['class']) . '</span>' : ''),
+                        '<span class="param name">$' . $param['name'] . '</span>'
+                    ]);
+                }
+                $output .= trim(implode(', ', $params));
+            }
+            $output .= ')';
+            $output .= '    ‹ <em class="class name">(' . url_class($method['class'], $method['class']) . ')</em>';
+            $output .= '</li>';
         }
-        $output .= ')';
-        $output .= '    ‹ <em class="class name">(' . url_class($method['class'], $method['class']) . ')</em>';
-        $output .= '</li>';
     }
 
     if ($debug) {

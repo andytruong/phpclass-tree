@@ -20,6 +20,9 @@
             .class.shortname { font-weight: bold; }
             .class.name, .class.name a { color: #999; }
             .method.scope { color: #ccc; }
+            li.scope-public { color: green; list-style-type: square; }
+            li.scope-protected { color: orange; list-style-type: square; }
+            li.scope-private { color: red; list-style-type: square; }
             .method.name { color: #428BCA; }
             .param.hint, .param.hint a { color: brown; }
             .param.name { color: darkgreen; }
