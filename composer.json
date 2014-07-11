@@ -1,0 +1,19 @@
+{
+    "name": "andytruong/phpclass-tree",
+    "type": "library",
+    "description": "Simple web application to print class structure.",
+    "keywords": ["api", "render"],
+    "homepage": "https://github.com/andytruong/phpclass-tree",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andy Truong",
+            "email": "thehongtt@gmail.com",
+            "homepage": "http://v3k.net/",
+            "role": "Lead Developer"
+        }
+    ],
+    "require": {
+        "symfony/class-loader": "2.5"
+    }
+}
