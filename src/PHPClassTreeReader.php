@@ -69,8 +69,11 @@ class PHPClassTreeReader
         $param_info = [
             'name' => $rp->getName(),
             'position' => $rp->getPosition(),
-            'class' => $rp->getDeclaringClass(),
         ];
+
+        if ($rp->getClass()) {
+            $param_info['class'] = $rp->getClass()->getName();
+        }
 
         try {
             $param_info['default_value'] = $rp->getDefaultValue();

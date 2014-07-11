@@ -27,6 +27,16 @@ function print_details($info, $prefix = '(root)', $debug = false) {
         $output .= '<em class="method scope">' . $method['scope'] . '</em>';
         $output .= ' <span class="method name">' . $method['name'] . '</span>';
         $output .= '(';
+        if (!empty($method['params'])) {
+            $params = [];
+            foreach ($method['params'] as $param) {
+                $params[] = implode(' ', [
+                    (isset($param['class']) ? '<span class="param hint">' . url_class($param['class'], $param['class']) . '</span>' : ''),
+                    '<span class="param name">$' .$param['name'] . '</span>'
+                ]);
+            }
+            $output .= trim(implode(', ', $params));
+        }
         $output .= ')';
         $output .= '    ‹ <em class="class name">('. url_class($method['class'], $method['class']) .')</em>';
         $output .= '</li>';

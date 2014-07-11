@@ -8,17 +8,20 @@
         <meta name="author" content="Andy Truong">
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="./jstree/dist/themes/default/style.min.css" />
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <!-- <script src="./jstree/dist/jstree.min.js"></script> -->
+        <!-- <link rel="stylesheet" href="./jstree/dist/themes/default/style.min.css" /> -->
 
         <style>
             .class.file { color: grey; }
-            .class.shortname, .class.name { color: red; }
+            .class.shortname, .class.name { color: darkgreen; }
+            .class.shortname { font-weight: bold; }
             .class.name, .class.name a { color: #999; }
             .method.scope { color: blue; }
             .method.name { color: #428BCA; }
+            .param.hint, .param.hint a { color: brown; }
+            .param.name { color: darkgreen; }
         </style>
     </head>
     <body>
