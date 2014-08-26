@@ -20,12 +20,15 @@ class NamespacePrinter extends Helper
                 $className = substr(substr($file, strlen($dir) + 1), 0, -4);
                 $className = $namespace . '\\' . str_replace(DIRECTORY_SEPARATOR, '\\', $className);
                 if (class_exists($className)) {
-                    $output .= '<li class="list-group-item"><i class="glyphicon glyphicon-asterisk"></i> ' . $this->urlClass($className, $className) . '</li>';
+                    // $output .= '<li class="list-group-item"><i class="glyphicon glyphicon-asterisk"></i> ' . $this->urlClass($className, $className) . '</li>';
+                    $output .= '<div class="col-xs-6">'
+                        . (new ClassPrinter($this->loader, $this->reader))->handle($className)[1]
+                        . '</div>';
                 }
             }
         }
-        
-        return '<ul class="list-group">' . $output . '</ul>';
+
+        return '<div class="namespace">' . $output . '</div>';
     }
 
     public function handle($input)

@@ -26,6 +26,11 @@
             .method.name { color: #428BCA; }
             .param.hint, .param.hint a { color: brown; }
             .param.name { color: darkgreen; }
+
+            div.namespace { font-size: 0.85em; }
+            div.namespace em.class.name { display: none; }
+            div.namespace li.list-group-item:hover em.class.name:before { content: 'Return '; }
+            div.namespace li.list-group-item:hover em.class.name { display: inline-block; }
         </style>
     </head>
     <body>
